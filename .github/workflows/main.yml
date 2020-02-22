@@ -19,8 +19,8 @@ jobs:
       - run: npm build --prod
 
       - name: Deploy to firebase
-        run: |
-          ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          CI: true
