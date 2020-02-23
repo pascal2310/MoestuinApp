@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent{
 
-  constructor(private router : Router) { }
+  constructor(public auth : AngularFireAuth) { }
 
-  ngOnInit(): void {
+  login(){
+    this.auth.signInWithPopup(new auth.GoogleAuthProvider())
   }
-
-  goToLogin(){
-    this.router.navigateByUrl('/login')
+  logout(){
+    this.auth.signOut();
   }
 }

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "moestuinapplicatie"
+  },
+  "targets": {
+    "moestuinapplicatie": {
+      "hosting": {
+        "MoestuinApplicatie": [
+          "moestuinapplicatie"
+        ]
+      }
+    }
   }
 }
